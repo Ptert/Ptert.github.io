@@ -17,7 +17,6 @@ import {
   ShieldAlert,
   Wrench,
 } from 'lucide-react';
-import Link from 'next/link';
 
 import { AppShell, PageIntro } from '@/components/app-shell';
 import { Badge } from '@/components/ui/badge';
@@ -229,9 +228,9 @@ export function LpGuide() {
                 </tbody>
               </table>
             </div>
-            <Link className="guide-cta" href="/?window=24h">
+            <a className="guide-cta" href="/?window=24h">
               打开 24H 市场筛选 <ArrowRight />
-            </Link>
+            </a>
           </GuideSection>
 
           <GuideSection
