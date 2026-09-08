@@ -12,6 +12,7 @@ import {
   SearchCode,
   Waves,
 } from 'lucide-react';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import { Badge } from '@/components/ui/badge';
@@ -70,7 +71,7 @@ export function AppShell({ children, activePath, status }: AppShellProps) {
             const Icon = item.icon;
             const active = item.match.includes(activePath);
             return (
-              <a
+              <Link
                 key={item.href}
                 className={cn('nav-item', active && 'is-active')}
                 href={item.href}
@@ -80,7 +81,7 @@ export function AppShell({ children, activePath, status }: AppShellProps) {
                 <Icon />
                 <span>{item.label}</span>
                 {active ? <i aria-hidden="true" /> : null}
-              </a>
+              </Link>
             );
           })}
         </nav>
@@ -135,10 +136,10 @@ export function AppShell({ children, activePath, status }: AppShellProps) {
 
       <div className="page-column">
         <header className="mobile-header">
-          <a className="mobile-brand" href="/">
+          <Link className="mobile-brand" href="/">
             <span className="brand-mark">R</span>
             <span>Robinhood Pools</span>
-          </a>
+          </Link>
           <Badge
             className={cn(
               'top-status',
@@ -157,14 +158,14 @@ export function AppShell({ children, activePath, status }: AppShellProps) {
             const Icon = item.icon;
             const active = item.match.includes(activePath);
             return (
-              <a
+              <Link
                 key={item.href}
                 className={cn(active && 'is-active')}
                 href={item.href}
               >
                 <Icon />
                 <span>{item.label}</span>
-              </a>
+              </Link>
             );
           })}
         </nav>

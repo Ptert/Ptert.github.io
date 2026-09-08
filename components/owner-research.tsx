@@ -17,6 +17,7 @@ import {
   Timer,
   WalletCards,
 } from 'lucide-react';
+import Link from 'next/link';
 import {
   useCallback,
   useEffect,
@@ -420,7 +421,7 @@ export function OwnerResearch() {
                     {pools.slice(0, 15).map((pool, index) => (
                       <TableRow key={pool.pool_id || String(index)}>
                         <TableCell>
-                          <a
+                          <Link
                             className="research-pool-link"
                             href={`/pool?id=${encodeURIComponent(pool.pool_id || '')}&owner=${encodeURIComponent(data.owner)}`}
                           >
@@ -428,7 +429,7 @@ export function OwnerResearch() {
                               {pool.pair || shortHash(pool.pool_id)}
                             </strong>
                             <small>{shortHash(pool.pool_id, 8, 5)}</small>
-                          </a>
+                          </Link>
                         </TableCell>
                         <TableCell>
                           <Badge variant="outline">
@@ -661,13 +662,13 @@ function ResearchPositions({
           return (
             <TableRow key={row.position_key || String(index)}>
               <TableCell>
-                <a
+                <Link
                   href={`/pool?id=${encodeURIComponent(row.pool_id || '')}&owner=${encodeURIComponent(owner)}`}
                   className="research-pool-link"
                 >
                   <strong>{row.pair || '—'}</strong>
                   <small>{shortHash(row.position_key, 8, 5)}</small>
-                </a>
+                </Link>
               </TableCell>
               <TableCell>
                 <Badge variant="outline">

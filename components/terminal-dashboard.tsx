@@ -23,6 +23,7 @@ import {
   Waves,
   Zap,
 } from 'lucide-react';
+import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { AppShell, EmptyState, PageIntro, Panel } from '@/components/app-shell';
@@ -572,9 +573,9 @@ export function TerminalDashboard({
               >
                 {poolOrder === 'desc' ? <ArrowDown /> : <ArrowUp />}
               </Button>
-              <a href="/pool" className="text-link">
+              <Link href="/pool" className="text-link">
                 打开分析台 <ArrowRight />
-              </a>
+              </Link>
             </div>
           }
         >
@@ -618,9 +619,9 @@ export function TerminalDashboard({
           kicker="IDENTITY-AWARE"
           title="LP 钱包与托管"
           action={
-            <a className="text-link" href="/research">
+            <Link className="text-link" href="/research">
               研究地址 <ArrowRight />
-            </a>
+            </Link>
           }
         >
           <OwnersTable
@@ -650,9 +651,9 @@ export function TerminalDashboard({
             Hook 分成，也不等于 LP 已实现收益。
           </p>
         </div>
-        <a href="/guide">
+        <Link href="/guide">
           查看方法论 <ExternalLink />
-        </a>
+        </Link>
       </section>
     </AppShell>
   );
@@ -683,7 +684,7 @@ function PoolsTable({ rows, loading }: { rows: PoolRow[]; loading: boolean }) {
           return (
             <TableRow key={id || index}>
               <TableCell>
-                <a
+                <Link
                   className="pair-cell"
                   href={`/pool?id=${encodeURIComponent(id)}`}
                   aria-label={`打开 ${pairLabel(row)} 池分析`}
@@ -699,7 +700,7 @@ function PoolsTable({ rows, loading }: { rows: PoolRow[]; loading: boolean }) {
                       {row.risks?.length ? ` · ${row.risks.length} 条边界` : ''}
                     </small>
                   </span>
-                </a>
+                </Link>
               </TableCell>
               <TableCell>
                 <Badge variant="outline" className="protocol-badge">
@@ -854,7 +855,7 @@ function OwnersTable({
           return (
             <TableRow key={`${identity}-${index}`}>
               <TableCell>
-                <a
+                <Link
                   className="identity-cell"
                   href={`/research?owner=${encodeURIComponent(identity)}`}
                 >
@@ -872,7 +873,7 @@ function OwnersTable({
                       {row.owner ? '受益所有人' : '托管 / 管理合约'}
                     </small>
                   </span>
-                </a>
+                </Link>
               </TableCell>
               <TableCell>
                 <span className="action-cell">
